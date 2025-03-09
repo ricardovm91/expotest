@@ -70,4 +70,6 @@ const styles = StyleSheet.create({
   receivedMessageText: {
     color: '#000000',
   },
-}); 
+});
+
+export default MessageBubble; 

@@ -56,4 +56,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#FFFFFF',
   },
-}); 
+});
+
+export default FormInput; 

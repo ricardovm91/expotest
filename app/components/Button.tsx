@@ -52,6 +52,8 @@ export function Button({
   );
 }
 
+export default Button;
+
 const styles = StyleSheet.create({
   button: {
     paddingVertical: 12,

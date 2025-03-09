@@ -36,4 +36,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 16,
   },
-}); 
+});
+
+export default ProfileSection; 
