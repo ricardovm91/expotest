@@ -1,9 +1,13 @@
 import { useState } from 'react';
-import { SafeAreaView, Image, Switch, TouchableOpacity, ScrollView, Alert } from 'react-native';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { SafeAreaView, ScrollView, Alert } from 'react-native';
 import { profileStyles } from '../styles/profile.styles';
-import { Ionicons } from '@expo/vector-icons';
+import { ThemedView } from '@/components/ThemedView';
+
+// Import our reusable components
+import { Button } from '@/app/components/Button';
+import { SettingsToggle } from '@/app/components/SettingsToggle';
+import { ProfileSection } from '@/app/components/ProfileSection';
+import { UserProfileHeader } from '@/app/components/UserProfileHeader';
 
 export default function ProfileScreen() {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
@@ -32,65 +36,44 @@ export default function ProfileScreen() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
         <ThemedView style={profileStyles.container}>
-          <ThemedText style={profileStyles.title}>Profile</ThemedText>
+          {/* Profile Header */}
+          <UserProfileHeader 
+            username="John Doe" 
+            email="john.doe@example.com" 
+          />
           
-          {/* Profile Section */}
-          <ThemedView style={profileStyles.profileSection}>
-            <TouchableOpacity style={profileStyles.profileImageContainer}>
-              <Ionicons name="person" size={60} color="#999" />
-            </TouchableOpacity>
-            <ThemedText style={profileStyles.username}>John Doe</ThemedText>
-            <ThemedText style={profileStyles.email}>john.doe@example.com</ThemedText>
-          </ThemedView>
-
           {/* Settings Section */}
-          <ThemedView style={profileStyles.section}>
-            <ThemedText style={profileStyles.sectionTitle}>Settings</ThemedText>
+          <ProfileSection title="Settings">
+            <SettingsToggle
+              label="Push Notifications"
+              value={notificationsEnabled}
+              onValueChange={setNotificationsEnabled}
+            />
             
-            {/* Notifications */}
-            <ThemedView style={profileStyles.settingItem}>
-              <ThemedText style={profileStyles.settingText}>Push Notifications</ThemedText>
-              <Switch
-                value={notificationsEnabled}
-                onValueChange={setNotificationsEnabled}
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={notificationsEnabled ? '#007AFF' : '#f4f3f4'}
-              />
-            </ThemedView>
-
-            {/* Face ID */}
-            <ThemedView style={profileStyles.settingItem}>
-              <ThemedText style={profileStyles.settingText}>Face ID Login</ThemedText>
-              <Switch
-                value={faceIdEnabled}
-                onValueChange={setFaceIdEnabled}
-                trackColor={{ false: '#767577', true: '#81b0ff' }}
-                thumbColor={faceIdEnabled ? '#007AFF' : '#f4f3f4'}
-              />
-            </ThemedView>
-          </ThemedView>
+            <SettingsToggle
+              label="Face ID Login"
+              value={faceIdEnabled}
+              onValueChange={setFaceIdEnabled}
+            />
+          </ProfileSection>
 
           {/* Support Section */}
-          <ThemedView style={profileStyles.section}>
-            <ThemedText style={profileStyles.sectionTitle}>Support</ThemedText>
-            <TouchableOpacity 
-              style={profileStyles.supportButton}
+          <ProfileSection title="Support">
+            <Button
+              title="Contact Support"
               onPress={handleContactSupport}
-            >
-              <ThemedText style={profileStyles.supportButtonText}>Contact Support</ThemedText>
-            </TouchableOpacity>
-          </ThemedView>
+              variant="support"
+            />
+          </ProfileSection>
 
           {/* Account Section */}
-          <ThemedView style={profileStyles.section}>
-            <ThemedText style={profileStyles.sectionTitle}>Account</ThemedText>
-            <TouchableOpacity 
-              style={profileStyles.dangerButton}
+          <ProfileSection title="Account">
+            <Button
+              title="Close Account"
               onPress={handleCloseAccount}
-            >
-              <ThemedText style={profileStyles.dangerButtonText}>Close Account</ThemedText>
-            </TouchableOpacity>
-          </ThemedView>
+              variant="danger"
+            />
+          </ProfileSection>
         </ThemedView>
       </ScrollView>
     </SafeAreaView>

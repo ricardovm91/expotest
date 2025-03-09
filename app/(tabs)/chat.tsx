@@ -4,6 +4,10 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { chatStyles } from '../styles/chat.styles';
 
+// Import our reusable components
+import { Button } from '@/app/components/Button';
+import { MessageBubble } from '@/app/components/MessageBubble';
+
 const exampleMessages = [
   { id: 1, text: "Hey there! How are you?", sent: false },
   { id: 2, text: "I'm doing great, thanks! How about you?", sent: true },
@@ -26,19 +30,11 @@ export default function ChatScreen() {
         
         <ScrollView style={chatStyles.messagesContainer}>
           {exampleMessages.map((msg) => (
-            <View key={msg.id} style={chatStyles.messageRow}>
-              <View style={[
-                chatStyles.messageBubble,
-                msg.sent ? chatStyles.sentMessage : chatStyles.receivedMessage
-              ]}>
-                <ThemedText style={[
-                  chatStyles.messageText,
-                  msg.sent ? chatStyles.sentMessageText : chatStyles.receivedMessageText
-                ]}>
-                  {msg.text}
-                </ThemedText>
-              </View>
-            </View>
+            <MessageBubble
+              key={msg.id}
+              text={msg.text}
+              sent={msg.sent}
+            />
           ))}
         </ScrollView>
 
@@ -50,12 +46,13 @@ export default function ChatScreen() {
             placeholder="Type a message..."
             placeholderTextColor="#999"
           />
-          <TouchableOpacity 
-            style={chatStyles.sendButton}
+          <Button
+            title="Send"
             onPress={handleSend}
-          >
-            <ThemedText style={chatStyles.sendButtonText}>Send</ThemedText>
-          </TouchableOpacity>
+            variant="primary"
+            style={chatStyles.sendButton}
+            textStyle={chatStyles.sendButtonText}
+          />
         </View>
       </ThemedView>
     </SafeAreaView>
