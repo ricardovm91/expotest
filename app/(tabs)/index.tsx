@@ -11,11 +11,6 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('so_easy_with_AI');
   const router = useRouter();
 
-  const handleLogin = () => {
-    // Navigate to the explore tab
-    router.push('/(tabs)/explore');
-  };
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ThemedView style={loginStyles.container}>

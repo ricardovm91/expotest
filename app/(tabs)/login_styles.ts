@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 export const loginStyles = StyleSheet.create({
   container: {
@@ -56,3 +57,8 @@ export const loginStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+// Adding a default export component to satisfy the route requirements
+export default function LoginStyles() {
+  return null; // This component doesn't render anything
+}
