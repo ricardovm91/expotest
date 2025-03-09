@@ -13,7 +13,7 @@ export default function LoginScreen() {
 
   const handleLogin = () => {
     // Add your login logic here
-    router.push('/(tabs)');
+    router.push('/components');
   };
 
   return (
