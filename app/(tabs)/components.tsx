@@ -1,7 +1,7 @@
 import { SafeAreaView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { componentStyles } from './styles/components.styles';
+import { componentStyles } from '../styles/components.styles';
 
 export default function ComponentsScreen() {
   return (

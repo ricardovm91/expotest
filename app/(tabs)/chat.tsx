@@ -1,7 +1,7 @@
 import { SafeAreaView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { chatStyles } from './styles/chat.styles';
+import { chatStyles } from '../styles/chat.styles';
 
 export default function ChatScreen() {
   return (
