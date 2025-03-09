@@ -41,7 +41,7 @@ export default function LoginScreen() {
             />
           </ThemedView>
           
-          <TouchableOpacity style={loginStyles.loginButton} onPress={handleLogin}>
+          <TouchableOpacity style={loginStyles.loginButton}>
             <ThemedText style={loginStyles.loginButtonText}>Login</ThemedText>
           </TouchableOpacity>
         </ThemedView>
