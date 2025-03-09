@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export const chatStyles = StyleSheet.create({
   container: {
@@ -10,4 +10,9 @@ export const chatStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-}); 
+});
+
+// Adding default export to satisfy Expo Router
+export default function ChatStyles() {
+  return null;
+} 

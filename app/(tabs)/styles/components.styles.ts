@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export const componentStyles = StyleSheet.create({
   container: {
@@ -10,4 +10,9 @@ export const componentStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
-}); 
+});
+
+// Adding default export to satisfy Expo Router
+export default function ComponentStyles() {
+  return null;
+} 
