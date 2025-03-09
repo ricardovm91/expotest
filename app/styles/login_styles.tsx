@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
+import { colors } from '@/app/styles/components.styles';
 
 export const loginStyles = StyleSheet.create({
   container: {
@@ -16,6 +17,7 @@ export const loginStyles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
+    color: colors.textPrimary,
     height: 100,
     textAlignVertical: 'center',
     textAlign: 'center',
@@ -23,11 +25,20 @@ export const loginStyles = StyleSheet.create({
   },
   formContainer: {
     width: '100%',
+    backgroundColor: colors.surfacePrimary,
+    padding: 24,
+    borderRadius: 16,
+    shadowColor: colors.textPrimary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
   },
   welcomeText: {
     fontSize: 18,
     marginBottom: 20,
     textAlign: 'center',
+    color: colors.textSecondary,
   },
   inputContainer: {
     marginBottom: 15,
@@ -35,27 +46,22 @@ export const loginStyles = StyleSheet.create({
   label: {
     fontSize: 14,
     marginBottom: 5,
-    color: '#666',
+    color: colors.textSecondary,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    padding: 10,
+    borderColor: colors.surfaceSecondary,
+    backgroundColor: colors.surfaceSecondary,
+    borderRadius: 12,
+    padding: 12,
     fontSize: 16,
-    color: 'white',
+    color: colors.textPrimary,
   },
   loginButton: {
-    backgroundColor: '#007AFF',
-    padding: 15,
-    borderRadius: 5,
-    alignItems: 'center',
     marginTop: 20,
   },
   loginButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
 });
 

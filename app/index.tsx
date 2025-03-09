@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { GradientView } from './components/GradientView';
 import { loginStyles } from './styles/login_styles';
 
 // Import our reusable components
@@ -22,39 +23,43 @@ export default function LoginScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ThemedView style={loginStyles.container}>
-        <ThemedView style={loginStyles.logoContainer}>
-          <ThemedText style={loginStyles.title}>Nanci</ThemedText>
+      <GradientView>
+        <ThemedView style={[loginStyles.container, { backgroundColor: 'transparent' }]}>
+          <ThemedView style={[loginStyles.logoContainer, { backgroundColor: 'transparent' }]}>
+            <ThemedText style={loginStyles.title}>Serenity</ThemedText>
+          </ThemedView>
+          
+          <ThemedView style={loginStyles.formContainer}>
+            <ThemedText style={loginStyles.welcomeText}>
+              Welcome back
+            </ThemedText>
+            
+            <FormInput
+              label="Username"
+              value={username}
+              onChangeText={setUsername}
+              autoCapitalize="none"
+              containerStyle={loginStyles.inputContainer}
+            />
+            
+            <FormInput
+              label="Password"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+              containerStyle={loginStyles.inputContainer}
+            />
+            
+            <Button
+              title="Sign In"
+              onPress={handleLogin}
+              variant="primary"
+              style={loginStyles.loginButton}
+              textStyle={loginStyles.loginButtonText}
+            />
+          </ThemedView>
         </ThemedView>
-        
-        <ThemedView style={loginStyles.formContainer}>
-          <ThemedText style={loginStyles.welcomeText}>Welcome, please sign in.</ThemedText>
-          
-          <FormInput
-            label="Username"
-            value={username}
-            onChangeText={setUsername}
-            autoCapitalize="none"
-            containerStyle={loginStyles.inputContainer}
-          />
-          
-          <FormInput
-            label="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-            containerStyle={loginStyles.inputContainer}
-          />
-          
-          <Button
-            title="Login"
-            onPress={handleLogin}
-            variant="primary"
-            style={loginStyles.loginButton}
-            textStyle={loginStyles.loginButtonText}
-          />
-        </ThemedView>
-      </ThemedView>
+      </GradientView>
     </SafeAreaView>
   );
 } 

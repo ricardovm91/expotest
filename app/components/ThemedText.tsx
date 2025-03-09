@@ -1,25 +1,19 @@
 import React from 'react';
-import { Text, TextProps, useColorScheme } from 'react-native';
+import { Text, TextProps } from 'react-native';
+import { colors } from '@/app/styles/components.styles';
 
 interface ThemedTextProps extends TextProps {
-  lightColor?: string;
-  darkColor?: string;
+  variant?: 'primary' | 'secondary';
 }
 
 export function ThemedText(props: ThemedTextProps) {
-  const {
-    lightColor = '#000000',
-    darkColor = '#FFFFFF',
-    style,
-    ...otherProps
-  } = props;
+  const { variant = 'primary', style, ...otherProps } = props;
 
-  const colorScheme = useColorScheme();
-  const color = colorScheme === 'dark' ? darkColor : lightColor;
+  const textColor = variant === 'primary' ? colors.textPrimary : colors.textSecondary;
 
   return (
     <Text
-      style={[{ color }, style]}
+      style={[{ color: textColor }, style]}
       {...otherProps}
     />
   );

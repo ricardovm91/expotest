@@ -1,8 +1,9 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
+import { colors } from '@/app/styles/components.styles';
 
-type ButtonVariant = 'primary' | 'secondary' | 'support' | 'danger';
+type ButtonVariant = 'primary' | 'secondary' | 'support';
 
 interface ButtonProps {
   onPress: () => void;
@@ -28,7 +29,6 @@ export function Button({
         variant === 'primary' && styles.primaryButton,
         variant === 'secondary' && styles.secondaryButton,
         variant === 'support' && styles.supportButton,
-        variant === 'danger' && styles.dangerButton,
         disabled && styles.disabledButton,
         style,
       ]}
@@ -41,7 +41,6 @@ export function Button({
           variant === 'primary' && styles.primaryButtonText,
           variant === 'secondary' && styles.secondaryButtonText,
           variant === 'support' && styles.supportButtonText,
-          variant === 'danger' && styles.dangerButtonText,
           disabled && styles.disabledButtonText,
           textStyle,
         ]}
@@ -58,43 +57,44 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 8,
+    borderRadius: 25,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: colors.textPrimary,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   primaryButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: colors.accentPrimary,
   },
   secondaryButton: {
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surfaceSecondary,
+    borderWidth: 1,
+    borderColor: colors.accentSecondary,
   },
   supportButton: {
-    backgroundColor: '#4CD964',
-  },
-  dangerButton: {
-    backgroundColor: '#FF3B30',
+    backgroundColor: colors.accentSecondary,
   },
   disabledButton: {
-    backgroundColor: '#E5E5EA',
+    backgroundColor: colors.surfaceSecondary,
     opacity: 0.5,
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
   primaryButtonText: {
-    color: '#FFFFFF',
+    color: colors.surfacePrimary,
   },
   secondaryButtonText: {
-    color: '#000000',
+    color: colors.textPrimary,
   },
   supportButtonText: {
-    color: '#FFFFFF',
-  },
-  dangerButtonText: {
-    color: '#FFFFFF',
+    color: colors.surfacePrimary,
   },
   disabledButtonText: {
-    color: '#8E8E93',
+    color: colors.textSecondary,
   },
 }); 
