@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { loginStyles } from './login_styles';
+import { loginStyles } from './styles/login_styles';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('test');
