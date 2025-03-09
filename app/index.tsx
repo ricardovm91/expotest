@@ -11,6 +11,11 @@ export default function LoginScreen() {
   const [password, setPassword] = useState('so_easy_with_AI');
   const router = useRouter();
 
+  const handleLogin = () => {
+    // Add your login logic here
+    router.push('/(tabs)');
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ThemedView style={loginStyles.container}>
@@ -41,11 +46,11 @@ export default function LoginScreen() {
             />
           </ThemedView>
           
-          <TouchableOpacity style={loginStyles.loginButton}>
+          <TouchableOpacity style={loginStyles.loginButton} onPress={handleLogin}>
             <ThemedText style={loginStyles.loginButtonText}>Login</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ThemedView>
     </SafeAreaView>
   );
-}
+} 
